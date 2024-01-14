@@ -14,9 +14,9 @@ public class NotificationController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping(path = "/messagestock/{id}")
-    public String getNotification(@PathVariable("id") Integer id){
-        return "Le produit dont la référence : " + id +" a été rajouté au stock";
+    @GetMapping(path = "/messagestock/{name}")
+    public String getNotification(@PathVariable("name") String name){
+        return "Le produit : " + name +" a été rajouté au stock";
     }
 
     @GetMapping(path = "/produit/{id}")
