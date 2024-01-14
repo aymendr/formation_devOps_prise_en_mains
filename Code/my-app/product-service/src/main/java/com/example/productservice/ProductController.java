@@ -19,23 +19,27 @@ public class ProductController {
     @Autowired
     private RestTemplate restTemplate;
 
+
+
+
     @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody String addNewProduct (@RequestParam String name
-            , @RequestParam Long price) {
+    public @ResponseBody String addNewProduct (@RequestParam(name = "name") String name, @RequestParam(name = "price") Long prix) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
+        System.out.println(name);
+
+
+
         Product n = new Product();
         n.setName(name);
-        n.setPrice(price);
-
+        //n.setPrice(prix);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://localhost:8082/notification/messagestock/"+n.getName(),String.class);
-
         String notification = responseEntity.getBody();
 
 
 
-        productRepository.save(n);
+        //productRepository.save(n);
         //System.out.println(notification);
 
         return notification;
