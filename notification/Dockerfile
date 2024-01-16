@@ -1,4 +1,4 @@
-FROM unitfinance/jdk17-sbt-scala
+FROM wodby/openjdk:17-alpine
 EXPOSE 8082
-ADD target/notification.jar notification.jar
+COPY target/notification.jar notification.jar
 ENTRYPOINT ["java","-jar","/notification.jar"]

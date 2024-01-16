@@ -21,7 +21,7 @@ public class NotificationController {
 
     @GetMapping(path = "/produit/{id}")
     public String getPrice(@PathVariable("id") Integer id){
-        ResponseEntity<String> produit = restTemplate.exchange("http://localhost:8081/productservice/"+id, HttpMethod.GET,null,String.class);
+        ResponseEntity<String> produit = restTemplate.exchange("http://product-service:8081/productservice/"+id, HttpMethod.GET,null,String.class);
         return produit.getBody();
     }
 }

@@ -34,7 +34,7 @@ public class ProductController {
         Product n = new Product();
         n.setName(name);
         n.setPrice(prix);
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://localhost:8082/notification/messagestock/"+n.getName(),String.class);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://notification:8082/notification/messagestock/"+n.getName(),String.class);
         String notification = responseEntity.getBody();
 
 

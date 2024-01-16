@@ -1,4 +1,4 @@
-FROM unitfinance/jdk17-sbt-scala
+FROM wodby/openjdk:17-alpine
 EXPOSE 8081
-ADD target/product-service.jar product-service.jar
+COPY target/product-service.jar product-service.jar
 ENTRYPOINT ["java","-jar","/product-service.jar"]
